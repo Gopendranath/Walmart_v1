@@ -1,0 +1,18 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/cart", "destination": "/index.html" },
+    { "source": "/wishlist", "destination": "/index.html" },
+    { "source": "/orders", "destination": "/index.html" },
+    { "source": "/login", "destination": "/index.html" },
+    { "source": "/logout", "destination": "/index.html" },
+    { "source": "/profile", "destination": "/index.html" },
+    { "source": "/category", "destination": "/index.html" },
+    { "source": "/product/:id", "destination": "/index.html" },
+    { "source": "/search", "destination": "/index.html" },
+    { "source": "/features", "destination": "/index.html" },
+    { "source": "/deals", "destination": "/index.html" },
+    { "source": "/notfound", "destination": "/index.html" },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
