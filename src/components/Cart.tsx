@@ -18,6 +18,7 @@ import {
   Tag
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { useAuth0 } from '@auth0/auth0-react'
 
 const ITEMS_PER_PAGE = 5;
 
@@ -28,6 +29,7 @@ const Cart = () => {
   const [checkoutSuccess, setCheckoutSuccess] = useState(false);
   const [isCheckingOut, setIsCheckingOut] = useState(false);
   const [showClearConfirm, setShowClearConfirm] = useState(false);
+  const { isAuthenticated } = useAuth0();
   
   const totalPages = Math.ceil(cartItems.length / ITEMS_PER_PAGE);
   const startIdx = (page - 1) * ITEMS_PER_PAGE;
@@ -56,6 +58,10 @@ const Cart = () => {
   const total = subtotal + shipping + tax
 
   const handleCheckout = async () => {
+    if (!isAuthenticated) {
+      window.location.href = '/login'
+      return
+    }
     if (cartItems.length === 0) return;
     setIsCheckingOut(true)
     
